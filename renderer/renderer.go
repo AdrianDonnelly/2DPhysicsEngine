@@ -5,18 +5,24 @@ import (
 )
 
 type Game struct {
-	dotX                float32
-	dotY                float32
+	Height              float32
+	Width               float32
+	Gravity             float32
 	moveState           MoveState
 	mouseX              int
 	mouseY              int
 	isMouseLeftPressed  bool
 	hasClickedThisFrame bool
 	placedCircles       []PlacedCircle
+	timeStep            float32
 }
 type PlacedCircle struct {
 	X      float32
 	Y      float32
+	V      float32
+	M      float32
+	vy     float32 //vertical vel
+	ay     float32 //vertical accel
 	Color  color.RGBA
 	Radius float32
 }
@@ -24,8 +30,10 @@ type PlacedCircle struct {
 type MoveState int
 
 func (g *Game) Init() {
-	g.dotX = 300
-	g.dotY = 100
+	g.Height = 400
+	g.Width = 400
+	g.Gravity = 982.0
+	g.timeStep = 1.0 / 60.0
 	g.isMouseLeftPressed = false
 	g.hasClickedThisFrame = false
 }

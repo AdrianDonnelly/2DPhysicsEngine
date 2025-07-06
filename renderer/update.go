@@ -7,6 +7,10 @@ import (
 
 func (g *Game) Update() error {
 	//g.Translate()
+	for i := range g.placedCircles {
+		p := &g.placedCircles[i]
+		gravity(g, p)
+	}
 
 	g.mouseX, g.mouseY = ebiten.CursorPosition()
 
@@ -15,6 +19,10 @@ func (g *Game) Update() error {
 			newCircle := PlacedCircle{
 				X:      float32(g.mouseX),
 				Y:      float32(g.mouseY),
+				V:      0.0,
+				M:      0.1,
+				vy:     0.0,
+				ay:     0.0,
 				Color:  color.RGBA{0xff, 0xff, 0x00, 0xff},
 				Radius: 5.0,
 			}
