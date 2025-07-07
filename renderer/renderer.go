@@ -15,18 +15,17 @@ type Game struct {
 	hasClickedThisFrame bool
 	placedCircles       []PlacedCircle
 	timeStep            float32
-	rho                 float32
+	AirDens             float32
 }
 type PlacedCircle struct {
 	X      float32
 	Y      float32
-	V      float32
-	M      float32
-	vy     float32 //vertical vel
-	ay     float32 //vertical accel
-	C_d    float32
-	e      float32
-	A      float32
+	Mass   float32 //Kg
+	Yvel   float32 //vertical vel
+	Yaccel float32 //vertical accel
+	CDrag  float32 //Coe
+	bounce float32
+	Area   float32
 	Color  color.RGBA
 	Radius float32
 }
@@ -38,7 +37,7 @@ func (g *Game) Init() {
 	g.Width = 400
 	g.Gravity = 9.81
 	g.timeStep = 1.0 / 60.0
-	g.rho = 1.2
+	g.AirDens = 1.2
 	g.isMouseLeftPressed = false
 	g.hasClickedThisFrame = false
 }

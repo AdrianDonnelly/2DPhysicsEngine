@@ -3,6 +3,7 @@ package renderer
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"image/color"
+	"math"
 )
 
 func (g *Game) Update() error {
@@ -15,17 +16,18 @@ func (g *Game) Update() error {
 	g.mouseX, g.mouseY = ebiten.CursorPosition()
 	if ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft) {
 		if !g.isMouseLeftPressed {
+			Radius := 5.0
 			newCircle := PlacedCircle{
 				X:      float32(g.mouseX),
 				Y:      float32(g.mouseY),
-				V:      0.0,
-				M:      0.1,
-				vy:     0.0,
-				C_d:    0.47,
-				e:      -0.5,
-				ay:     9.82,
+				Mass:   0.1,
+				Yvel:   0.00,
+				CDrag:  0.47,
+				bounce: -0.5,
+				Yaccel: 0,
 				Color:  color.RGBA{0xff, 0xff, 0x00, 0xff},
-				Radius: 5.0,
+				Radius: float32(Radius),
+				Area:   float32(math.Pi * Radius * Radius / 10000),
 			}
 			g.placedCircles = append(g.placedCircles, newCircle)
 			g.isMouseLeftPressed = true
