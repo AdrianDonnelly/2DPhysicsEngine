@@ -36,7 +36,7 @@ func (g *Game) Init() {
 	g.Height = 400
 	g.Width = 400
 	g.Gravity = 9.81
-	g.timeStep = 1.0 / 60.0
+	g.timeStep = 0.02
 	g.AirDens = 1.2
 	g.isMouseLeftPressed = false
 	g.hasClickedThisFrame = false
