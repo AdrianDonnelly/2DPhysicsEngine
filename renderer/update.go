@@ -13,7 +13,6 @@ func (g *Game) Update() error {
 	}
 
 	g.mouseX, g.mouseY = ebiten.CursorPosition()
-
 	if ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft) {
 		if !g.isMouseLeftPressed {
 			newCircle := PlacedCircle{
@@ -22,7 +21,9 @@ func (g *Game) Update() error {
 				V:      0.0,
 				M:      0.1,
 				vy:     0.0,
-				ay:     0.0,
+				C_d:    0.47,
+				e:      -0.5,
+				ay:     9.82,
 				Color:  color.RGBA{0xff, 0xff, 0x00, 0xff},
 				Radius: 5.0,
 			}
