@@ -16,6 +16,7 @@ type Game struct {
 	placedCircles       []PlacedCircle
 	timeStep            float32
 	AirDens             float32
+	count               int
 }
 type PlacedCircle struct {
 	X      float32
@@ -33,10 +34,10 @@ type PlacedCircle struct {
 type MoveState int
 
 func (g *Game) Init() {
-	g.Height = 400
+	g.Height = 200
 	g.Width = 400
 	g.Gravity = 9.81
-	g.timeStep = 0.02
+	g.timeStep = 0.001
 	g.AirDens = 1.2
 	g.isMouseLeftPressed = false
 	g.hasClickedThisFrame = false

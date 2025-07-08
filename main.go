@@ -11,7 +11,7 @@ func main() {
 	game.Init()
 	ebiten.SetWindowSize(640, 480)
 	ebiten.SetWindowTitle("2D Physics Engine")
-	if err := ebiten.RunGame(&renderer.Game{}); err != nil {
+	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
 	}
 }

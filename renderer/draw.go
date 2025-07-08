@@ -1,13 +1,19 @@
 package renderer
 
 import (
+	"fmt"
 	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/text"
 	"github.com/hajimehoshi/ebiten/v2/vector"
+	"golang.org/x/image/font/basicfont"
 	"image/color"
 )
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	screen.Fill(color.RGBA{0x40, 0x40, 0x40, 0xff})
+	fmt.Println(g.count)
+	msg := fmt.Sprintf("Count: %d", g.count)
+	text.Draw(screen, msg, basicfont.Face7x13, 10, 20, color.White)
 
 	err := DrawFloor(screen)
 

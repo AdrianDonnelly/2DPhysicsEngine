@@ -21,14 +21,15 @@ func (g *Game) Update() error {
 				X:      float32(g.mouseX),
 				Y:      float32(g.mouseY),
 				Mass:   0.1,
-				Yvel:   0.00,
+				Yvel:   0.01,
 				CDrag:  0.47,
 				bounce: -0.5,
-				Yaccel: 0,
+				Yaccel: 0.0,
 				Color:  color.RGBA{0xff, 0xff, 0x00, 0xff},
 				Radius: float32(Radius),
 				Area:   float32(math.Pi * Radius * Radius / 10000),
 			}
+			g.count += 1
 			g.placedCircles = append(g.placedCircles, newCircle)
 			g.isMouseLeftPressed = true
 		}
