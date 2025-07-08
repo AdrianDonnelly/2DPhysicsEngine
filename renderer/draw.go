@@ -31,7 +31,7 @@ func DrawFloor(screen *ebiten.Image) error {
 	y := float32(200)
 	width := float32(500)
 	height := float32(50)
-	rectColor := color.RGBA{0xFF, 0x00, 0x00, 0xFF}
+	rectColor := color.RGBA{90, 90, 90, 1}
 	vector.DrawFilledRect(screen, x, y, width, height, rectColor, false)
 	return nil
 }
