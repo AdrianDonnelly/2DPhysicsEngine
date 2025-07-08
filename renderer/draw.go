@@ -23,6 +23,9 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	for _, circle := range g.placedCircles {
 		vector.DrawFilledCircle(screen, circle.X, circle.Y, circle.Radius, circle.Color, true)
 	}
+	for _, Rect := range g.placedRects {
+		vector.DrawFilledRect(screen, Rect.X, Rect.Y, Rect.Width, Rect.Height, color.RGBA{200, 90, 90, 1}, false)
+	}
 
 }
 

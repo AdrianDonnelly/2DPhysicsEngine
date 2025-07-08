@@ -1,6 +1,6 @@
 package renderer
 
-func gravity(g *Game, p *PlacedCircle) {
+func gravity(g *Game, p *placedRect) {
 	var YForce float32 = 0.0
 
 	YForce += p.Mass * 9.82
@@ -20,8 +20,8 @@ func gravity(g *Game, p *PlacedCircle) {
 	p.Yaccel += newYaccel
 
 	//collisions
-	if p.Y+p.Radius > g.Height && p.Yvel > 0 {
+	if p.Y+p.Height > g.Height && p.Yvel > 0 {
 		p.Yvel *= p.bounce
-		p.Y = g.Height - p.Radius
+		p.Y = g.Height - p.Height
 	}
 }
